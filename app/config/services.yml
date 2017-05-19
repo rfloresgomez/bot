@@ -7,7 +7,12 @@ services:
     #service_name:
     #    class: AppBundle\Directory\ClassName
     #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
-    app.telegram.command:
+    app.telegram.command.hola:
         class: AppBundle\Commands\HolaCommand
+        tags:
+            - { name: bo_shurik_telegram_bot.command }
+
+    app.telegram.command.estado:
+        class: AppBundle\Commands\EstadoCommand
         tags:
             - { name: bo_shurik_telegram_bot.command }

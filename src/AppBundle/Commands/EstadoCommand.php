@@ -6,7 +6,7 @@ use BoShurik\TelegramBotBundle\Telegram\Command\PublicCommandInterface;
 use TelegramBot\Api\BotApi;
 use TelegramBot\Api\Types\Message;
 
-class HolaCommand extends AbstractCommand implements PublicCommandInterface
+class EstadoCommand extends AbstractCommand implements PublicCommandInterface
 {
 
     /**
@@ -14,7 +14,7 @@ class HolaCommand extends AbstractCommand implements PublicCommandInterface
      */
     public function getName()
     {
-        return '/hola';
+        return '/estado';
     }
 
     /**
@@ -22,7 +22,7 @@ class HolaCommand extends AbstractCommand implements PublicCommandInterface
      */
     public function getDescription()
     {
-        return 'Te saludo';
+        return 'Cómo estoy';
     }
 
     /**
@@ -31,17 +31,17 @@ class HolaCommand extends AbstractCommand implements PublicCommandInterface
     public function execute(BotApi $api, Message $message)
     {
         $option = $message->getText();
-        $options = explode('/hola ', $option);
+        $options = explode('/estado ', $option);
 
         if(count($options)>1)
             $option = $options[1];
         else
             $option = null;
 
-        if(strtoupper($option) == 'DAW')
-            $text = "Hola gente de 2ºDAW!";
+        if(strtoupper($option) == 'INVIERNO')
+            $text = "En invierno en Córdoba se está bien!!";
         else
-            $text = "Holaaaaa , soy la Jaca Paca!!!";
+            $text = "Hace más calor que jodiendo debajo de un plástico!!!";
         $api->sendMessage($message->getChat()->getId(), $text, 'markdown');
     }
 }
