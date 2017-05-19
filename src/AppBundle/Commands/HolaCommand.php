@@ -41,7 +41,7 @@ class HolaCommand extends AbstractCommand implements PublicCommandInterface
         if(strtoupper($option) == 'DAW')
             $text = "Hola gente de 2ºDAW!";
         else
-            $text = "Holaaaaa , soy la Jaca Paca!!!";
+            $text = "Holaaaaa , soy la Jaca Pacaaaaa!!!";
         $api->sendMessage($message->getChat()->getId(), $text, 'markdown');
     }
 }
